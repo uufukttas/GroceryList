@@ -13,6 +13,7 @@ function AddProduct({ products, setProducts }) {
         }
 
         setProducts([...products, form]);
+        window.localStorage.setItem('grocery-list', JSON.stringify(products));
         setForm(initialState);
     };
 
