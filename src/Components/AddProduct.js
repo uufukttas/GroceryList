@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import didYouMean from 'didyoumean';
+const listItems = ['Orange', 'Apple', 'Banana', 'Grapes', 'Pineapple', 'Potato', 'Tomato', 'Pepper'];
 
 const initialState = { product: '' };
 
@@ -12,6 +14,7 @@ function AddProduct({ products, setProducts }) {
             return false;
         }
 
+        form.product = didYouMean(form.product, listItems) || form.product;
         setProducts([...products, form]);
         window.localStorage.setItem('grocery-list', JSON.stringify(products));
         setForm(initialState);
