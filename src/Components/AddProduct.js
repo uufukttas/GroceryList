@@ -7,8 +7,8 @@ const initialState = { product: '' };
 function AddProduct({ products, setProducts }) {
     const [form, setForm] = useState(initialState);
 
-    const submitForm = e => {
-        e.preventDefault();
+    const submitForm = event => {
+        event.preventDefault();
 
         if (form.product === '') {
             return false;
@@ -20,8 +20,8 @@ function AddProduct({ products, setProducts }) {
         setForm(initialState);
     };
 
-    const onChangeInput = e => {
-        setForm({...form, [e.target.name]: e.target.value });
+    const onChangeInput = event => {
+        setForm({...form, [event.target.name]: event.target.value });
     };
 
     return (

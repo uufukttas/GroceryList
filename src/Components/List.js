@@ -1,29 +1,31 @@
 import React from 'react'
 
 function List({ products, setProducts }) {
-    const removeProduct = (event) => {
-        const removedItem = event.target.parentElement;
-        const product = removedItem.textContent;
 
-        products = JSON.parse(window.localStorage.getItem('grocery-list')).filter(item => {
-            return item.product !== product;
-        });
+    const removeProduct = event => {
+        const product = event.target.parentElement.textContent;
 
+        getFilteredData(product);
         setProducts(products);
-        window.localStorage.setItem('grocery-list', JSON.stringify(products));
+        setStorageData();
     }
 
     const updateProduct = (event) => {
         const product = prompt('You can update');
 
-        products = JSON.parse(window.localStorage.getItem('grocery-list')).filter(item => {
-            return item.product !== product;
-        });
-
+        getFilteredData(product);
         products.push({ product: product});
         setProducts(products);
-        window.localStorage.setItem('grocery-list', JSON.stringify(products));
+        setStorageData();
     }
+
+    const getStorageData = () => JSON.parse(window.localStorage.getItem('grocery-list'));
+    const setStorageData = () => window.localStorage.setItem('grocery-list', JSON.stringify(products));
+    const getFilteredData = product => {
+        products = getStorageData().filter(item => {
+            return item.product !== product;
+        });
+    };
 
     return (
         <div className="list-grocery">
@@ -43,4 +45,4 @@ function List({ products, setProducts }) {
     )
 }
 
-export default List
+export default List;

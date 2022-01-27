@@ -9,9 +9,9 @@ function App() {
   const [products, setProducts] = useState(initialState);
 
   return (
-    <div className="App">
-      <AddProduct products={products} setProducts={setProducts} />
-      <List products={products} setProducts={setProducts}/>
+    <div className = "App">
+      <AddProduct products = {products} setProducts = {setProducts}/>
+      <List products = {products} setProducts = {setProducts}/>
     </div>
   );
 }
