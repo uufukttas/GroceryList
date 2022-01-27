@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 .App {
   padding: 5%;
 }
@@ -23,25 +24,23 @@
   padding: 2% 2% 0 2%;
   width: 100%;
 }
+
 .grocery-list {
   display: flex;
   flex-direction: column;
+}
+
+.grocery-list-item {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .grocery-list-btn {
   margin-top: 2%;
   padding: 2%;
   cursor: pointer;
-}
-
-form {
-  width: 65%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  border: 1px solid #000;
-  padding: 2%;
 }
 
 .grocery-list-phone,
@@ -56,15 +55,18 @@ input[type="submit"] {
   margin-top: 2%;
 }
 
+form {
+  width: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  border: 1px solid #000;
+  padding: 2%;
+}
+
 label {
   display: inline-block;
   width: 15%;
   text-align: left;
-}
-
-.grocery-list-item {
-  list-style-type: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }
