@@ -13,6 +13,18 @@ function List({ products, setProducts }) {
         window.localStorage.setItem('grocery-list', JSON.stringify(products));
     }
 
+    const updateProduct = (event) => {
+        const product = prompt('You can update');
+
+        products = JSON.parse(window.localStorage.getItem('grocery-list')).filter(item => {
+            return item.product !== product;
+        });
+
+        products.push({ product: product});
+        setProducts(products);
+        window.localStorage.setItem('grocery-list', JSON.stringify(products));
+    }
+
     return (
         <div className="list-grocery">
             <h1>LIST</h1>
@@ -22,6 +34,7 @@ function List({ products, setProducts }) {
                         <li className="grocery-list-item" key={index}>
                             <p>{item.product}</p>
                             <input className='grocery-remove-btn' type='button' value='Remove' onClick={removeProduct}/>
+                            <input className='grocery-update-btn' type='button' value='Update' onClick={updateProduct}/>
                         </li>
                     )
                 }
